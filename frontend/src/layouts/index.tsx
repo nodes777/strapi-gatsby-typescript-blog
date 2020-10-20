@@ -41,14 +41,31 @@ const IndexLayout: React.FC<Props> = ({ children }) => (
               id
               title
               content
+              category {name}
               image {
                 id
+                childImageSharp{
+                  fluid {
+                    aspectRatio
+                      base64
+                      tracedSVG
+                      srcWebp
+                      srcSetWebp
+                      originalImg
+                      originalName
+                      sizes
+                      src
+                      srcSet
+                    }
+                  }
+                }
               }
             }
           }
         }
-      }
     `}
+
+
     render={(data: StaticQueryProps) => (
       <LayoutRoot>
         <div className="uk-section">

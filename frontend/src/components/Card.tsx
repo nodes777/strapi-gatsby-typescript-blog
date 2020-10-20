@@ -7,6 +7,8 @@ interface ArticleProps {
 }
 
 const Card: React.FC<ArticleProps> = ({ article }) => {
+  console.log(article.node);
+
   return (
     <Link to={`/article/${article.node.strapiId}`} className="uk-link-reset">
       <div className="uk-card uk-card-muted">
