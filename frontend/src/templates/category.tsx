@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import LayoutRoot from '../components/LayoutRoot'
-import ArticlesComponent from '../components/articles'
+import Articles from '../components/Articles'
 
 interface CategoryProps {
   data: {
@@ -43,7 +43,7 @@ export const query = graphql`
 `
 
 const Category: React.FC<CategoryProps> = ({ data }) => {
-  const articles = data.articles.edges
+  const articles = data.articles
   const category = data.category.name
 
   return (
@@ -51,7 +51,7 @@ const Category: React.FC<CategoryProps> = ({ data }) => {
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{category}</h1>
-          <ArticlesComponent articles={articles} />
+          <Articles articles={articles} />
         </div>
       </div>
     </LayoutRoot>

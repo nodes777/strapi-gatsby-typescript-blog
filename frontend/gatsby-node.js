@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
   articles.forEach((article, index) => {
     createPage({
       path: `/article/${article.node.strapiId}`,
-      component: require.resolve('./src/templates/article.tsx'),
+      component: require.resolve('./src/templates/Article.tsx'),
       context: {
         id: article.node.strapiId
       }
@@ -46,10 +46,21 @@ exports.createPages = async ({ graphql, actions }) => {
   categories.forEach((category, index) => {
     createPage({
       path: `/category/${category.node.strapiId}`,
-      component: require.resolve('./src/templates/category.tsx'),
+      component: require.resolve('./src/templates/Category.tsx'),
       context: {
         id: category.node.strapiId
       }
     })
   })
+}
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    })
+  }
 }

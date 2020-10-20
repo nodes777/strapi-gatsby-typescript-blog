@@ -6,7 +6,7 @@ import '../styles/normalize'
 
 import LayoutRoot from '../components/LayoutRoot'
 
-import ArticlesComponent from '../components/Articles'
+import Articles from '../components/Articles'
 
 interface StaticQueryProps {
   site: {
@@ -73,7 +73,7 @@ const IndexLayout: React.FC<Props> = ({ children }) => (
         <div className="uk-section">
           <div className="uk-container uk-container-large">
             <h1>Strapi blog</h1>
-            <ArticlesComponent articles={data.allStrapiArticle} />
+            <Articles articles={data.allStrapiArticle} />
           </div>
         </div>
       </LayoutRoot>
