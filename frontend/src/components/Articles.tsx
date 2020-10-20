@@ -12,7 +12,7 @@ const Articles: React.FC<ArticlesProps> = ({ articles }) => {
 
   const leftArticlesCount = Math.ceil(articles.edges.length / 5)
   const leftArticles = articles.edges.slice(0, leftArticlesCount)
-  const rightArticles = articles.edges.slice(leftArticlesCount, articles.length)
+  const rightArticles = articles.edges.slice(leftArticlesCount, articles.edges.length)
 
   return (
     <div>

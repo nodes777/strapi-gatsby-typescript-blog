@@ -16,7 +16,9 @@ interface StaticQueryProps {
       keywords: string
     }
   }
-  allStrapiArticle:Article[]
+  allStrapiArticle:{
+    edges:Article[]
+  }
 }
 
 interface Props {
