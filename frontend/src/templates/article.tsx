@@ -10,8 +10,10 @@ interface ArticleProps {
   data: {
     strapiArticle: {
       image: {
-        childImageSharp: {
-          fixed: FixedObject
+        imageFile: {
+          childImageSharp: {
+            fixed: FixedObject
+          }
         }
       }
       title: string
@@ -28,9 +30,11 @@ export const query = graphql`
       content
       published_at
       image {
-        childImageSharp {
-          fixed(width: 660) {
-            ...GatsbyImageSharpFixed
+        imageFile {
+          childImageSharp {
+            fixed(width: 660) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
@@ -47,7 +51,7 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
           id="banner"
           className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
         >
-          <Img className="banner-bg" fixed={article.image.childImageSharp.fixed} />
+          <Img className="banner-bg" fixed={article.image.imageFile.childImageSharp.fixed} />
           <h1 className="uk-position-z-index">{article.title}</h1>
         </div>
 

@@ -16,8 +16,8 @@ interface StaticQueryProps {
       keywords: string
     }
   }
-  allStrapiArticle:{
-    edges:Article[]
+  allStrapiArticle: {
+    edges: Article[]
   }
 }
 
@@ -43,12 +43,15 @@ const IndexLayout: React.FC<Props> = ({ children }) => (
               id
               title
               content
-              category {name}
+              category {
+                name
+              }
               image {
                 id
-                childImageSharp{
-                  fluid {
-                    aspectRatio
+                imageFile {
+                  childImageSharp {
+                    fluid {
+                      aspectRatio
                       base64
                       tracedSVG
                       srcWebp
@@ -65,9 +68,8 @@ const IndexLayout: React.FC<Props> = ({ children }) => (
             }
           }
         }
+      }
     `}
-
-
     render={(data: StaticQueryProps) => (
       <LayoutRoot>
         <div className="uk-section">

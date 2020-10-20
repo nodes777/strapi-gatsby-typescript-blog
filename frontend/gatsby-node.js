@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -63,4 +64,33 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       },
     })
   }
+}
+
+// this is a workaround for gatsby-source-strapi not creating childImageSharp nodes correctly
+exports.createResolvers = ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
+  const { createNode } = actions
+  createResolvers({
+    StrapiArticleImage: {
+      imageFile: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: `http://localhost:1337${source.url}`, // for S3 upload ${source.url}. For local: `http://localhost:1337${source.url}`,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        },
+      },
+    },
+  })
 }
