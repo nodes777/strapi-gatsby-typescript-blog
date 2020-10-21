@@ -13,7 +13,7 @@ const Card: React.FC<ArticleProps> = ({ article }) => {
     <Link to={`/article/${article.node.strapiId}`} className="uk-link-reset">
       <div className="uk-card uk-card-muted">
         <div className="uk-card-media-top">
-          <Img fluid={article.node.image.imageFile.childImageSharp.fluid} />
+          <Img fluid={article.node.image.childImageSharp.fluid} />
         </div>
         <div className="uk-card-body">
           <p id="category" className="uk-text-uppercase">

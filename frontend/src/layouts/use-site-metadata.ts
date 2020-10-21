@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby'
 export const useSiteMetadata = () => {
-  const { queriedData } = useStaticQuery(
+  const { site, allStrapiArticle } = useStaticQuery(
     graphql`
       query IndexLayoutQuery {
         site {
@@ -21,6 +21,7 @@ export const useSiteMetadata = () => {
               }
               image {
                 id
+
                 childImageSharp {
                   fluid {
                     aspectRatio
@@ -42,5 +43,8 @@ export const useSiteMetadata = () => {
       }
     `
   )
-  return queriedData
+  console.log(site)
+  console.log(allStrapiArticle)
+
+  return { site, allStrapiArticle }
 }

@@ -29,14 +29,14 @@ interface Props {
 }
 
 const IndexLayout: React.FC<Props> = ({ children }) => {
-  const { data } = useSiteMetadata()
-
+  const queriedData = useSiteMetadata()
+  console.log(queriedData)
   return (
     <LayoutRoot>
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>Strapi blog</h1>
-          <Articles articles={data.allStrapiArticle} />
+          <Articles articles={queriedData.allStrapiArticle} />
         </div>
       </div>
     </LayoutRoot>

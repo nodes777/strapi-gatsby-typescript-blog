@@ -10,12 +10,11 @@ interface ArticleProps {
   data: {
     strapiArticle: {
       image: {
-        imageFile: {
-          childImageSharp: {
-            fixed: FixedObject
-          }
+        childImageSharp: {
+          fixed: FixedObject
         }
       }
+
       title: string
       content: string
     }
@@ -49,7 +48,7 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
           id="banner"
           className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
         >
-          <Img className="banner-bg" fixed={article.image.imageFile.childImageSharp.fixed} />
+          <Img className="banner-bg" fixed={article.image.childImageSharp.fixed} />
           <h1 className="uk-position-z-index">{article.title}</h1>
         </div>
 
