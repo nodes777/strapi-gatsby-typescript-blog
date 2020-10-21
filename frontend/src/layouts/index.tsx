@@ -8,6 +8,8 @@ import LayoutRoot from '../components/LayoutRoot'
 
 import Articles from '../components/Articles'
 
+import { useSiteMetadata } from './use-site-metadata'
+
 interface StaticQueryProps {
   site: {
     siteMetadata: {
@@ -26,61 +28,19 @@ interface Props {
   readonly children: React.ReactNode
 }
 
-const IndexLayout: React.FC<Props> = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query IndexLayoutQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-        allStrapiArticle {
-          totalCount
-          edges {
-            node {
-              id
-              title
-              content
-              category {
-                name
-              }
-              image {
-                id
-                imageFile {
-                  childImageSharp {
-                    fluid {
-                      aspectRatio
-                      base64
-                      tracedSVG
-                      srcWebp
-                      srcSetWebp
-                      originalImg
-                      originalName
-                      sizes
-                      src
-                      srcSet
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data: StaticQueryProps) => (
-      <LayoutRoot>
-        <div className="uk-section">
-          <div className="uk-container uk-container-large">
-            <h1>Strapi blog</h1>
-            <Articles articles={data.allStrapiArticle} />
-          </div>
+const IndexLayout: React.FC<Props> = ({ children }) => {
+  const { data } = useSiteMetadata()
+
+  return (
+    <LayoutRoot>
+      <div className="uk-section">
+        <div className="uk-container uk-container-large">
+          <h1>Strapi blog</h1>
+          <Articles articles={data.allStrapiArticle} />
         </div>
-      </LayoutRoot>
-    )}
-  />
-)
+      </div>
+    </LayoutRoot>
+  )
+}
 
 export default IndexLayout

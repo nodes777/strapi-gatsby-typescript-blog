@@ -26,12 +26,10 @@ export const query = graphql`
             name
           }
           image {
-            imageFile {
-              childImageSharp {
-                fluid(maxWidth: 595, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                  ...GatsbyImageSharpFluidLimitPresentationSize
-                }
+            childImageSharp {
+              fluid(maxWidth: 595, quality: 100) {
+                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluidLimitPresentationSize
               }
             }
           }

@@ -30,11 +30,9 @@ export const query = graphql`
       content
       published_at
       image {
-        imageFile {
-          childImageSharp {
-            fixed(width: 660) {
-              ...GatsbyImageSharpFixed
-            }
+        childImageSharp {
+          fixed(width: 660) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
