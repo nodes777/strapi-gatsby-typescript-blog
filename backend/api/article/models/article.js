@@ -1,5 +1,5 @@
-'use strict';
-
+"use strict";
+const fetch = require("cross-fetch");
 /**
  * Lifecycle callbacks for the `article` model.
  */
@@ -7,6 +7,21 @@
 module.exports = {
   // Before saving a value.
   // Fired before an `insert` or `update` query.
+  beforeSave: async (input) => {
+    const res = await fetch(
+      `https://api.inaturalist.org/v1/observations/${input.iNatID}`
+    );
+    if (res.status >= 400) {
+      throw new Error("Bad response from iNaturalist server");
+    }
+    const d = await res.json();
+    const iNatData = d.results[0];
+    console.log(iNatData);
+
+    console.log(input.placeGuess);
+    input.placeGuess = iNatData.place_guess;
+    console.log(input.placeGuess);
+  },
   // beforeSave: async (model, attrs, options) => {},
 
   // After saving a value.

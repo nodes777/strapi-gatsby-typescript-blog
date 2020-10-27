@@ -28,13 +28,16 @@
       "plugin": "upload",
       "required": true
     },
-    "published_at": {
-      "required": true,
-      "type": "date"
-    },
+    
     "category": {
       "model": "category",
       "via": "articles"
+    },
+    "iNatID": {
+      "type": "string"
+    },
+    "placeGuess": {
+      "type": "string"
     }
   }
 }
