@@ -17,9 +17,6 @@
     "iNatID": {
       "type": "string"
     },
-    "dateTaken": {
-      "type": "date"
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -31,11 +28,11 @@
       "plugin": "upload",
       "required": false
     },
-    "description": {
+    "content": {
       "type": "richtext"
     },
-    "placeGuess": {
-      "type": "string"
+    "iNatData": {
+      "type": "json"
     }
   }
 }

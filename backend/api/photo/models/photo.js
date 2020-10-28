@@ -14,30 +14,34 @@ module.exports = {
         throw new Error("Bad response from iNaturalist server");
       }
       const d = await res.json();
-      const iNatData = d.results[0];
+      const iNatResponse = d.results[0];
 
-      console.log(iNatData);
+      console.log(iNatResponse);
 
-      console.log(input.placeGuess);
-      // TODO: Create these in content type
-      // Maybe just make a json object type for all iNatData?
+      // hold all the iNatData in one json
+      let iNatData = {};
+
       // TODO: Create checks for these
-      input.placeGuess = iNatData.place_guess;
-      input.dateTaken = iNatData.observed_on_details.date;
-      input.iNatDescription = iNatData.description;
-      input.commonName = iNatData.species_guess;
-      input.latinName = iNatData.taxon.name;
+      iNatData.placeGuess = iNatResponse.place_guess;
+      iNatData.dateTaken = iNatResponse.observed_on_details.date;
+      iNatData.iNatDescription = iNatResponse.description;
+      iNatData.commonName = iNatResponse.species_guess;
+      iNatData.latinName = iNatResponse.taxon.name;
 
       // waht is a taxon
-      input.taxon = iNatData.taxon.iconic_taxon_name;
+      iNatData.taxonName = iNatResponse.taxon.iconic_taxon_name;
+      // aves = birds filter?
       // how to get taxonomy relationship?
+      // make a taxa call to iNat
+      // https://api.inaturalist.org/v1/taxa/${iNatResponse.taxon.id}
 
-      input.endemic = iNatData.endemic;
-      input.threatened = iNatData.threatened;
-      input.introduced = iNatData.introduced;
-      input.native = iNatData.native;
+      iNatData.endemic = iNatResponse.taxon.endemic;
+      iNatData.threatened = iNatResponse.taxon.threatened;
+      iNatData.introduced = iNatResponse.taxon.introduced;
+      iNatData.native = iNatResponse.taxon.native;
 
-      console.log(input.placeGuess);
+      input.iNatData = iNatData;
+      console.log(input.iNatData);
     },
   },
 };
