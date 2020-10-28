@@ -19,7 +19,24 @@ module.exports = {
       console.log(iNatData);
 
       console.log(input.placeGuess);
+      // TODO: Create these in content type
+      // Maybe just make a json object type for all iNatData?
+      // TODO: Create checks for these
       input.placeGuess = iNatData.place_guess;
+      input.dateTaken = iNatData.observed_on_details.date;
+      input.iNatDescription = iNatData.description;
+      input.commonName = iNatData.species_guess;
+      input.latinName = iNatData.taxon.name;
+
+      // waht is a taxon
+      input.taxon = iNatData.taxon.iconic_taxon_name;
+      // how to get taxonomy relationship?
+
+      input.endemic = iNatData.endemic;
+      input.threatened = iNatData.threatened;
+      input.introduced = iNatData.introduced;
+      input.native = iNatData.native;
+
       console.log(input.placeGuess);
     },
   },
