@@ -1,47 +1,41 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "photos",
   "info": {
-    "name": "article",
+    "name": "Photo",
     "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
-    "content": {
-      "type": "richtext",
-      "required": true
+    "iNatID": {
+      "type": "string"
+    },
+    "dateTaken": {
+      "type": "date"
     },
     "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "files",
         "images",
+        "files",
         "videos"
       ],
       "plugin": "upload",
-      "required": true
+      "required": false
     },
-    "category": {
-      "model": "category",
-      "via": "articles"
-    },
-    "iNatID": {
-      "type": "string"
+    "description": {
+      "type": "richtext"
     },
     "placeGuess": {
       "type": "string"
-    },
-    "dateTaken": {
-      "type": "datetime"
     }
   }
 }
