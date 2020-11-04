@@ -6,7 +6,7 @@ import '../styles/normalize'
 
 import LayoutRoot from '../components/LayoutRoot'
 
-import Articles from '../components/Articles'
+import Photos from '../components/Photos'
 
 import { useSiteMetadata } from './use-site-metadata'
 
@@ -18,8 +18,8 @@ interface StaticQueryProps {
       keywords: string
     }
   }
-  allStrapiArticle: {
-    edges: Article[]
+  allStrapiPhoto: {
+    edges: Photo[]
   }
 }
 
@@ -36,7 +36,7 @@ const IndexLayout: React.FC<Props> = ({ children }) => {
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>Strapi blog</h1>
-          <Articles articles={queriedData.allStrapiArticle} />
+          <Photos photos={queriedData.allStrapiPhoto} />
         </div>
       </div>
     </LayoutRoot>

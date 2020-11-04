@@ -82,7 +82,7 @@ const SEO: React.FC<Props> = ({ children }) => (
           },
           {
             name: `twitter:creator`,
-            content: 'kilinkis'
+            content: 'asdasd'
           },
           {
             name: `twitter:title`,

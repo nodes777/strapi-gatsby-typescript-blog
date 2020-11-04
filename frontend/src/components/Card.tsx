@@ -3,24 +3,24 @@ import { Link } from 'gatsby'
 import Img, { FixedObject } from 'gatsby-image'
 
 interface ArticleProps {
-  article: Article
+  photo: Photo
 }
 
-const Card: React.FC<ArticleProps> = ({ article }) => {
-  console.log(article.node)
+const Card: React.FC<ArticleProps> = ({ photo }) => {
+  console.log(photo.node)
 
   return (
-    <Link to={`/article/${article.node.strapiId}`} className="uk-link-reset">
+    <Link to={`/photo/${photo.node.strapiId}`} className="uk-link-reset">
       <div className="uk-card uk-card-muted">
         <div className="uk-card-media-top">
-          <Img fluid={article.node.image.childImageSharp.fluid} />
+          <Img fluid={photo.node.image.childImageSharp.fluid} />
         </div>
         <div className="uk-card-body">
           <p id="category" className="uk-text-uppercase">
-            {article.node.category.name}
+            {/* {photo.node.category.name} */}
           </p>
           <p id="title" className="uk-text-large">
-            {article.node.title}
+            {photo.node.title}
           </p>
         </div>
       </div>

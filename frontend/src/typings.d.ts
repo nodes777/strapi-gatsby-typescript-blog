@@ -1,4 +1,4 @@
-interface Article {
+interface Photo {
   node: {
     id: number
     strapiId: string
@@ -10,9 +10,9 @@ interface Article {
         }
       }
     }
-    category: {
-      name: string
-    }
+    // category: {
+    //   name: string
+    // }
     title: string
     content: string
   }

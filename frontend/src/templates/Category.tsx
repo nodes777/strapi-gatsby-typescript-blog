@@ -2,12 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import LayoutRoot from '../components/LayoutRoot'
-import Articles from '../components/Articles'
+import Photos from '../components/Photos'
 
 interface CategoryProps {
   data: {
-    articles: {
-      edges: Article[]
+    photos: {
+      edges: Photo[]
     }
     category: {
       name: string
@@ -15,43 +15,44 @@ interface CategoryProps {
   }
 }
 
-export const query = graphql`
-  query Category($id: Int!) {
-    articles: allStrapiArticle(filter: { category: { id: { eq: $id } } }) {
-      edges {
-        node {
-          strapiId
-          title
-          category {
-            name
-          }
-          image {
-            childImageSharp {
-              fluid(maxWidth: 595, quality: 100) {
-                ...GatsbyImageSharpFluid
-                ...GatsbyImageSharpFluidLimitPresentationSize
-              }
-            }
-          }
-        }
-      }
-    }
-    category: strapiCategory(strapiId: { eq: $id }) {
-      name
-    }
-  }
-`
+// export const query = graphql`
+//   query Category($id: Int!) {
+//     photos: allStrapiPhoto(filter: { category: { id: { eq: $id } } }) {
+//       edges {
+//         node {
+//           strapiId
+//           title
+//           # category {
+//           #   name
+//           # }
+//           image {
+//             childImageSharp {
+//               fluid(maxWidth: 595, quality: 100) {
+//                 ...GatsbyImageSharpFluid
+//                 ...GatsbyImageSharpFluidLimitPresentationSize
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     category: strapiCategory(strapiId: { eq: $id }) {
+//       name
+//     }
+//   }
+// `
 
 const Category: React.FC<CategoryProps> = ({ data }) => {
-  const articles = data.articles
+  const photos = data.photos
   const category = data.category.name
 
   return (
     <LayoutRoot>
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <h1>{category}</h1>
-          <Articles articles={articles} />
+          BLAH
+          {/* <h1>{category}</h1>
+          <Articles articles={photos} /> */}
         </div>
       </div>
     </LayoutRoot>

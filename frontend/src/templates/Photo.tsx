@@ -6,9 +6,9 @@ import ReactMarkdown from 'react-markdown'
 
 import LayoutRoot from '../components/LayoutRoot'
 
-interface ArticleProps {
+interface PhotoProps {
   data: {
-    strapiArticle: {
+    strapiPhoto: {
       image: {
         childImageSharp: {
           fixed: FixedObject
@@ -22,8 +22,8 @@ interface ArticleProps {
 }
 
 export const query = graphql`
-  query ArticleQuery($id: Int!) {
-    strapiArticle(strapiId: { eq: $id }) {
+  query PhotoQuery($id: Int!) {
+    strapiPhoto(strapiId: { eq: $id }) {
       strapiId
       title
       content
@@ -39,8 +39,8 @@ export const query = graphql`
   }
 `
 
-const Article: React.FC<ArticleProps> = ({ data }) => {
-  const article = data.strapiArticle
+const Photo: React.FC<PhotoProps> = ({ data }) => {
+  const photo = data.strapiPhoto
   return (
     <LayoutRoot>
       <div>
@@ -48,13 +48,12 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
           id="banner"
           className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
         >
-          <Img className="banner-bg" fixed={article.image.childImageSharp.fixed} />
-          <h1 className="uk-position-z-index">{article.title}</h1>
+          <Img className="banner-bg" fixed={photo.image.childImageSharp.fixed} />
         </div>
-
+        <h1>{photo.title}</h1>
         <div className="uk-section">
           <div className="uk-container uk-container-small">
-            <ReactMarkdown source={article.content} />
+            <ReactMarkdown source={photo.content} />
           </div>
         </div>
       </div>
@@ -62,4 +61,4 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
   )
 }
 
-export default Article
+export default Photo

@@ -1,14 +1,14 @@
 'use strict'
 
 const path = require('path')
-const { createRemoteFileNode } = require("gatsby-source-filesystem")
+const { createRemoteFileNode } = require('gatsby-source-filesystem')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(
     `
       {
-        articles: allStrapiArticle {
+        photos: allStrapiPhoto {
           edges {
             node {
               strapiId
@@ -30,16 +30,16 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog articles pages.
-  const articles = result.data.articles.edges
+  // Create blog photo pages.
+  const photos = result.data.photos.edges
   const categories = result.data.categories.edges
 
-  articles.forEach((article, index) => {
+  photos.forEach((photo, index) => {
     createPage({
-      path: `/article/${article.node.strapiId}`,
-      component: require.resolve('./src/templates/Article.tsx'),
+      path: `/photo/${photo.node.strapiId}`,
+      component: require.resolve('./src/templates/Photo.tsx'),
       context: {
-        id: article.node.strapiId
+        id: photo.node.strapiId
       }
     })
   })
@@ -55,42 +55,36 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage.startsWith("develop")) {
+  if (stage.startsWith('develop')) {
     actions.setWebpackConfig({
       resolve: {
         alias: {
-          "react-dom": "@hot-loader/react-dom",
-        },
-      },
+          'react-dom': '@hot-loader/react-dom'
+        }
+      }
     })
   }
 }
 
 // this is a workaround for gatsby-source-strapi not creating childImageSharp nodes correctly
-exports.createResolvers = ({
-  actions,
-  cache,
-  createNodeId,
-  createResolvers,
-  store,
-  reporter,
-}) => {
+exports.createResolvers = ({ actions, cache, createNodeId, createResolvers, store, reporter }) => {
   const { createNode } = actions
   createResolvers({
-    StrapiArticleImage: {
+    StrapiPhotoImage: {
       imageFile: {
         type: `File`,
         resolve(source, args, context, info) {
           return createRemoteFileNode({
-            url: `http://localhost:1337${source.url}`, // for S3 upload ${source.url}. For local: `http://localhost:1337${source.url}`,
+            // DOUBLE CHECK THIS WORKS, otherwise just the latter expression
+            url: `${process.env.API_URL}${source.url}` || `http://localhost:1337${source.url}`, // for S3 upload ${source.url}. For local: `http://localhost:1337${source.url}`,
             store,
             cache,
             createNode,
             createNodeId,
-            reporter,
+            reporter
           })
-        },
-      },
-    },
+        }
+      }
+    }
   })
 }

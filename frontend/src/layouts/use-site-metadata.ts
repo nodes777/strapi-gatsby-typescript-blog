@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby'
 export const useSiteMetadata = () => {
-  const { site, allStrapiArticle } = useStaticQuery(
+  const { site, allStrapiPhoto } = useStaticQuery(
     graphql`
       query IndexLayoutQuery {
         site {
@@ -9,16 +9,17 @@ export const useSiteMetadata = () => {
             description
           }
         }
-        allStrapiArticle {
+        allStrapiPhoto {
           totalCount
           edges {
             node {
+              strapiId
               id
               title
               content
-              category {
-                name
-              }
+              # category {
+              #   name
+              # }
               image {
                 id
 
@@ -43,8 +44,6 @@ export const useSiteMetadata = () => {
       }
     `
   )
-  console.log(site)
-  console.log(allStrapiArticle)
 
-  return { site, allStrapiArticle }
+  return { site, allStrapiPhoto }
 }
