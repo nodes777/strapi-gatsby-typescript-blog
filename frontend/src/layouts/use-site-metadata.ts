@@ -17,9 +17,9 @@ export const useSiteMetadata = () => {
               id
               title
               content
-              # category {
-              #   name
-              # }
+              tags {
+                name
+              }
               image {
                 id
 

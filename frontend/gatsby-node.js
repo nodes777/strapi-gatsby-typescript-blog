@@ -2,6 +2,7 @@
 
 const path = require('path')
 const { createRemoteFileNode } = require('gatsby-source-filesystem')
+const { createTaggedTemplate } = require('typescript')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -15,7 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-        categories: allStrapiCategory {
+        tags: allStrapiTag {
           edges {
             node {
               strapiId
@@ -32,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog photo pages.
   const photos = result.data.photos.edges
-  const categories = result.data.categories.edges
+  const tags = result.data.tags.edges
 
   photos.forEach((photo, index) => {
     createPage({
@@ -44,15 +45,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  categories.forEach((category, index) => {
-    createPage({
-      path: `/category/${category.node.strapiId}`,
-      component: require.resolve('./src/templates/Category.tsx'),
-      context: {
-        id: category.node.strapiId
-      }
-    })
-  })
+  // tags.forEach((tag, index) => {
+  //   createPage({
+  //     path: `/tag/${tag.node.strapiId}`,
+  //     component: require.resolve('./src/templates/Category.tsx'),
+  //     context: {
+  //       id: tag.node.strapiId
+  //     }
+  //   })
+  // })
 }
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith('develop')) {

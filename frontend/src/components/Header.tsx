@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
-interface categoryInterface {
+interface tagInterface {
   node: {
     id: number
     name: string
@@ -19,36 +19,14 @@ const Header: React.FC<HeaderProps> = ({ title }) => (
         <div className="uk-navbar-left">
           <ul className="uk-navbar-nav">
             <li>
-              <Link to="/">Strapi Blog</Link>
+              <Link to="/">Home</Link>
             </li>
           </ul>
         </div>
 
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
-            <StaticQuery
-              query={graphql`
-                query {
-                  allStrapiCategory {
-                    edges {
-                      node {
-                        id
-                        name
-                      }
-                    }
-                  }
-                }
-              `}
-              render={data =>
-                data.allStrapiCategory.edges.map((category: categoryInterface, i: number) => {
-                  return (
-                    <li key={category.node.id}>
-                      <Link to={`/category/${category.node.id}`}>{category.node.name}</Link>
-                    </li>
-                  )
-                })
-              }
-            />
+            <Link to="/about">About</Link>
           </ul>
         </div>
       </nav>

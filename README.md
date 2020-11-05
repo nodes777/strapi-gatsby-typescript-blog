@@ -33,3 +33,5 @@ Make sure permissions are valid for a given content type
 Make sure a content type is published for it to show up in the graphql
 
 gatsby-config --> gatsby-node --> pages/index.tsx --> layouts/index.tsx AND use-site-metadata.ts -->
+
+For portrait pics -> Windows doesn't recognize exif info -> view and save in D:\IrfanView
