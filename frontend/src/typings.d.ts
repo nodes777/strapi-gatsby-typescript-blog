@@ -3,11 +3,9 @@ interface Photo {
     id: number
     strapiId: string
     image: {
-      imageFile: {
-        childImageSharp: {
-          fixed: FixedObject
-          fluid: FluidObject
-        }
+      childImageSharp: {
+        fixed: FixedObject
+        fluid: FluidObject
       }
     }
     // category: {
