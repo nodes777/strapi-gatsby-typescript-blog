@@ -75,22 +75,6 @@ const SEO: React.FC<Props> = ({ children }) => (
           {
             property: `og:type`,
             content: `website`
-          },
-          {
-            name: `twitter:card`,
-            content: `summary`
-          },
-          {
-            name: `twitter:creator`,
-            content: 'asdasd'
-          },
-          {
-            name: `twitter:title`,
-            content: data.site.siteMetadata.title
-          },
-          {
-            name: `twitter:description`,
-            content: data.site.siteMetadata.description
           }
         ]}
       />

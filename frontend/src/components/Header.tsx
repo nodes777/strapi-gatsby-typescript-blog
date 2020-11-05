@@ -26,7 +26,9 @@ const Header: React.FC<HeaderProps> = ({ title }) => (
 
         <div className="uk-navbar-right">
           <ul className="uk-navbar-nav">
-            <Link to="/about">About</Link>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
           </ul>
         </div>
       </nav>

@@ -6,11 +6,11 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'My super blog',
-    description: 'Gatsby blog with Strapi',
+    title: 'TayloredToTaylor Photos',
+    description: 'TayloredToTaylors Wildlife Photography Blog',
     author: {
-      name: 'Strapi team',
-      url: 'https://strapi.io/'
+      name: 'Taylor Nodell',
+      url: 'https://taylornodell.com/'
     }
   },
   plugins: [
