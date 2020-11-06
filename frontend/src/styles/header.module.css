@@ -9,6 +9,10 @@
   color: black;
   font-weight: bold;
 }
+
+nav a:hover {
+  color: black;
+}
 .homeLink {
   padding-left: 1em;
 }
