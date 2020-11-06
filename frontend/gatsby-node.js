@@ -44,16 +44,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
-
-  // tags.forEach((tag, index) => {
-  //   createPage({
-  //     path: `/tag/${tag.node.strapiId}`,
-  //     component: require.resolve('./src/templates/Category.tsx'),
-  //     context: {
-  //       id: tag.node.strapiId
-  //     }
-  //   })
-  // })
 }
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith('develop')) {

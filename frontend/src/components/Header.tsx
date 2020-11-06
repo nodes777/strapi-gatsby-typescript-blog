@@ -1,39 +1,20 @@
 import * as React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-
-interface tagInterface {
-  node: {
-    id: number
-    name: string
-  }
-}
+import styles from '../styles/header.module.css'
 
 interface HeaderProps {
   title?: string
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => (
-  <div>
-    <div>
-      <nav className="uk-navbar-container" data-uk-navbar>
-        <div className="uk-navbar-left">
-          <ul className="uk-navbar-nav">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="uk-navbar-right">
-          <ul className="uk-navbar-nav">
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav className={styles.headerNav}>
+    <div className={styles.homeLink}>
+      <Link to="/">Home</Link>
     </div>
-  </div>
+    <div className={styles.aboutLink}>
+      <Link to="/about">About</Link>
+    </div>
+  </nav>
 )
 
 export default Header

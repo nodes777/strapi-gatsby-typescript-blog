@@ -1,0 +1,18 @@
+.headerNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: lightgrey;
+}
+
+.headerNav a {
+  color: darkslateblue;
+  font-weight: bold;
+}
+.homeLink {
+  padding-left: 1em;
+}
+
+.aboutLink {
+  padding-right: 1em;
+}

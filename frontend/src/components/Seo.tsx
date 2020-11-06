@@ -37,7 +37,7 @@ const SEO: React.FC<Props> = ({ children }) => (
           lang: `en`
         }}
         title={data.site.siteMetadata.title}
-        titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+        // titleTemplate={`%s | ${data.site.siteMetadata.title}`}
         link={[
           {
             rel: 'stylesheet',

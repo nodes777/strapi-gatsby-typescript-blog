@@ -1,5 +1,19 @@
 import { useStaticQuery, graphql } from 'gatsby'
-export const useSiteMetadata = () => {
+
+interface StaticQueryProps {
+  site: {
+    siteMetadata: {
+      title: string
+      description: string
+      keywords: string
+    }
+  }
+  allStrapiPhoto: {
+    edges: Photo[]
+  }
+}
+
+export const useSiteMetadata = (): StaticQueryProps => {
   const { site, allStrapiPhoto } = useStaticQuery(
     graphql`
       query IndexLayoutQuery {
