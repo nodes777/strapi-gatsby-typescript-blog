@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+
+import styles from '../styles/layoutIndex.module.css'
 
 import LayoutRoot from '../components/LayoutRoot'
 
@@ -16,11 +17,11 @@ const IndexLayout: React.FC<Props> = ({ children }) => {
   const queriedData = useSiteMetadata()
   return (
     <LayoutRoot>
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>TayloredToTaylor's Wildlife Photos</h1>
-          <Photos photos={queriedData.allStrapiPhoto} />
+      <div className={styles.bigHomeContainer}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.indexHeading}>TayloredToTaylor's Wildlife Photos</h1>
         </div>
+        <Photos photos={queriedData.allStrapiPhoto} />
       </div>
     </LayoutRoot>
   )

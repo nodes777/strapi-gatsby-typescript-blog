@@ -1,0 +1,17 @@
+.bigHomeContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #161616;
+  align-items: center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.titleContainer h1 {
+  color: blanchedalmond;
+}
