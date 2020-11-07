@@ -1,19 +1,32 @@
-interface Photo {
+export interface Photo {
   node: {
     id: number
     strapiId: string
     image: {
       childImageSharp: {
-        fixed: FixedObject
+        fixed: FixedImageSharpObject
         fluid: FluidObject
       }
     }
-    // category: {
-    //   name: string
-    // }
+    tag: {
+      name: string
+    }
     title: string
     content: string
   }
+}
+
+type FixedImageSharpObject = {
+  aspectRatio: number
+  base64: string
+  originalName: string
+  src: string
+  height: number
+  srcSet: string
+  srcSetWebp: string
+  srcWebp: string
+  tracedSVG: string
+  width: number
 }
 
 interface CSSModule {

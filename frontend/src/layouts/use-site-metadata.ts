@@ -24,6 +24,7 @@ export const useSiteMetadata = (): StaticQueryProps => {
           }
         }
         allStrapiPhoto {
+          # TODO: limit to first 10? sort by date added?
           totalCount
           edges {
             node {
@@ -36,19 +37,14 @@ export const useSiteMetadata = (): StaticQueryProps => {
               }
               image {
                 id
-
                 childImageSharp {
-                  fluid {
-                    aspectRatio
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
-                    originalImg
-                    originalName
-                    sizes
-                    src
-                    srcSet
+                  fluid(quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                  # load quality via width?
+                  # then handle containing div as breakpoints for responsiveness? that doesn't work for some reason
+                  fixed(quality: 100) {
+                    ...GatsbyImageSharpFixed
                   }
                 }
               }
