@@ -37,14 +37,16 @@ export const useSiteMetadata = (): StaticQueryProps => {
               }
               image {
                 id
-                childImageSharp {
-                  fluid(quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                  # load quality via width?
-                  # then handle containing div as breakpoints for responsiveness? that doesn't work for some reason
-                  fixed(quality: 100) {
-                    ...GatsbyImageSharpFixed
+                imageFile {
+                  childImageSharp {
+                    fluid(quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                    # load quality via width?
+                    # then handle containing div as breakpoints for responsiveness? that doesn't work for some reason
+                    fixed(quality: 100) {
+                      ...GatsbyImageSharpFixed
+                    }
                   }
                 }
               }
