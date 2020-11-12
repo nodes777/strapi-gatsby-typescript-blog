@@ -1,4 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby'
+import { Photo } from '../typings'
 
 interface StaticQueryProps {
   site: {
@@ -39,12 +40,10 @@ export const useSiteMetadata = (): StaticQueryProps => {
                 id
                 imageFile {
                   childImageSharp {
-                    fluid(quality: 100) {
+                    fluid(maxWidth: 1200) {
                       ...GatsbyImageSharpFluid
                     }
-                    # load quality via width?
-                    # then handle containing div as breakpoints for responsiveness? that doesn't work for some reason
-                    fixed(quality: 100) {
+                    fixed {
                       ...GatsbyImageSharpFixed
                     }
                   }

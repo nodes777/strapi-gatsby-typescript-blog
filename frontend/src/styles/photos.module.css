@@ -1,18 +1,6 @@
 .photoListContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   /* set width breakpoints here*/
-}
-
-/* CSS Code for when the screen size is 480px Screen size */
-
-@media screen and (max-width: 480px) {
-  .photoListContainer {
-    width: 450px;
-  }
-}
-@media screen and (max-width: 900px) {
-  .photoListContainer {
-    width: 880px;
-  }
 }

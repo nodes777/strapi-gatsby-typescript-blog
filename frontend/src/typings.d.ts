@@ -3,9 +3,11 @@ export interface Photo {
     id: number
     strapiId: string
     image: {
-      childImageSharp: {
-        fixed: FixedImageSharpObject
-        fluid: FluidObject
+      imageFile: {
+        childImageSharp: {
+          fixed: FixedImageSharpObject
+          fluid: FluidObject
+        }
       }
     }
     tag: {

@@ -1,12 +1,55 @@
-.cardContainer {
-  justify-content: center;
-  width: 100%;
-}
-
 .cardContainer :hover {
   color: blanchedalmond;
 }
 
 .cardContainer h2 {
   color: blanchedalmond;
+}
+
+/* When the screen size is < 480px */
+@media screen and (min-width: 480px) {
+  .cardContainer {
+    width: 480px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .cardContainer {
+    width: 900px;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .cardContainer {
+    width: 1150px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .cardContainer {
+    width: 1400px;
+  }
+}
+
+/* Portrait */
+@media screen and (min-width: 480px) {
+  .portraitCardContainer {
+    width: 450px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .portraitCardContainer {
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .portraitCardContainer {
+    width: 550px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .portraitCardContainer {
+    width: 700px;
+  }
 }
