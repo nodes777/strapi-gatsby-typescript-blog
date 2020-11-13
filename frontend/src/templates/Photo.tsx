@@ -1,23 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img, { FixedObject } from 'gatsby-image'
+import Img from 'gatsby-image'
 
 import ReactMarkdown from 'react-markdown'
 
 import LayoutRoot from '../components/LayoutRoot'
+import { PhotoInterface } from '../typings'
+
+import styles from '../styles/photoPage.module.css'
 
 interface PhotoProps {
   data: {
-    strapiPhoto: {
-      image: {
-        childImageSharp: {
-          fixed: FixedObject
-        }
-      }
-
-      title: string
-      content: string
-    }
+    strapiPhoto: PhotoInterface['node']
   }
 }
 
@@ -31,8 +25,8 @@ export const query = graphql`
       image {
         imageFile {
           childImageSharp {
-            fixed(width: 660) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 6000, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -43,20 +37,19 @@ export const query = graphql`
 
 const Photo: React.FC<PhotoProps> = ({ data }) => {
   const photo = data.strapiPhoto
+  console.log(photo)
+
+  console.log(styles)
+
   return (
     <LayoutRoot>
-      <div>
-        <div
-          id="banner"
-          className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        >
-          <Img className="banner-bg" fixed={photo.image.childImageSharp.fixed} />
+      <div className={styles.photoContainer}>
+        <div className={styles.imageContainer}>
+          <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
         </div>
         <h1>{photo.title}</h1>
-        <div className="uk-section">
-          <div className="uk-container uk-container-small">
-            <ReactMarkdown source={photo.content} />
-          </div>
+        <div>
+          <ReactMarkdown source={photo.content} />
         </div>
       </div>
     </LayoutRoot>

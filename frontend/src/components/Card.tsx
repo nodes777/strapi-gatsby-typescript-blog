@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img, { FixedObject } from 'gatsby-image'
-import { Photo } from '../typings'
+import { PhotoInterface } from '../typings'
 import styles from '../styles/card.module.css'
 import classnames from 'classnames'
 
 interface CardProps {
-  photo: Photo
+  photo: PhotoInterface
 }
 
 const Card: React.FC<CardProps> = ({ photo }) => {

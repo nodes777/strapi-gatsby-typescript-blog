@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby'
-import { Photo } from '../typings'
+import { PhotoInterface } from '../typings'
 
 interface StaticQueryProps {
   site: {
@@ -10,7 +10,7 @@ interface StaticQueryProps {
     }
   }
   allStrapiPhoto: {
-    edges: Photo[]
+    edges: PhotoInterface[]
   }
 }
 

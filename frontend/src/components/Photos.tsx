@@ -1,10 +1,11 @@
 import React from 'react'
 import Card from './Card'
 import styles from '../styles/photos.module.css'
-import { Photo } from '../typings'
+
+import { PhotoInterface } from '../typings'
 interface PhotosProps {
   photos: {
-    edges: Photo[]
+    edges: PhotoInterface[]
   }
 }
 

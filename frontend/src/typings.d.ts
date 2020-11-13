@@ -1,4 +1,4 @@
-export interface Photo {
+export interface PhotoInterface {
   node: {
     id: number
     strapiId: string
