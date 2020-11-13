@@ -40,11 +40,8 @@ export const useSiteMetadata = (): StaticQueryProps => {
                 id
                 imageFile {
                   childImageSharp {
-                    fluid(maxWidth: 1200) {
+                    fluid(maxWidth: 4000, quality: 90) {
                       ...GatsbyImageSharpFluid
-                    }
-                    fixed {
-                      ...GatsbyImageSharpFixed
                     }
                   }
                 }
