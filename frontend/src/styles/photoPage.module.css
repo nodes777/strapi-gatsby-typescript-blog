@@ -2,9 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #161616;
 }
 
 .imageContainer {
+  padding-top: 1vh;
   width: 100%;
-  max-width: 6000;
+  max-width: 6000px;
+}
+
+.photoContainer h1,
+h2,
+p {
+  color: blanchedalmond;
+}
+
+/* Portrait */
+@media screen and (min-width: 600px) {
+  .portraitImageContainer {
+    max-width: 550px;
+  }
 }

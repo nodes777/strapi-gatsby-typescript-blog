@@ -8,6 +8,7 @@ import LayoutRoot from '../components/LayoutRoot'
 import { PhotoInterface } from '../typings'
 
 import styles from '../styles/photoPage.module.css'
+import classnames from 'classnames'
 
 interface PhotoProps {
   data: {
@@ -38,13 +39,11 @@ export const query = graphql`
 const Photo: React.FC<PhotoProps> = ({ data }) => {
   const photo = data.strapiPhoto
   console.log(photo)
-
-  console.log(styles)
-
+  const aspectRatio = photo.image.imageFile.childImageSharp.fluid.aspectRatio
   return (
     <LayoutRoot>
       <div className={styles.photoContainer}>
-        <div className={styles.imageContainer}>
+        <div className={classnames(styles.imageContainer, aspectRatio > 1 ? null : styles.portraitImageContainer)}>
           <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
         </div>
         <h1>{photo.title}</h1>

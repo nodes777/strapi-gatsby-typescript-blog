@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img, { FixedObject } from 'gatsby-image'
+import Img from 'gatsby-image'
 import { PhotoInterface } from '../typings'
 import styles from '../styles/card.module.css'
 import classnames from 'classnames'
@@ -11,11 +11,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ photo }) => {
   console.log(photo.node)
-
   const aspectRatio = photo.node.image.imageFile.childImageSharp.fluid.aspectRatio
-
-  console.log(`aspectRatio ${aspectRatio}`)
-
   return (
     // if aspectRatio is greater than 1 it's a portrait
     <div className={classnames(styles.cardContainer, aspectRatio > 1 ? null : styles.portraitCardContainer)}>
