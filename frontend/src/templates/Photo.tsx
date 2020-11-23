@@ -9,6 +9,7 @@ import { PhotoInterface } from '../typings'
 
 import styles from '../styles/photoPage.module.css'
 import classnames from 'classnames'
+import { PhotoDesc } from '../components/photoDesc'
 
 interface PhotoProps {
   data: {
@@ -16,26 +17,7 @@ interface PhotoProps {
   }
 }
 
-export const query = graphql`
-  query PhotoQuery($id: Int!) {
-    strapiPhoto(strapiId: { eq: $id }) {
-      strapiId
-      title
-      content
-      published_at
-      image {
-        imageFile {
-          childImageSharp {
-            fluid(maxWidth: 6000, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
+// data is from our graphQL query, which is run ahead of time in createPages
 const Photo: React.FC<PhotoProps> = ({ data }) => {
   const photo = data.strapiPhoto
   console.log(photo)
@@ -50,10 +32,7 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
               <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
             </div>
             <div className={styles.portraitTextContainer}>
-              <h1>{photo.title}</h1>
-              <div>
-                <ReactMarkdown source={photo.content} />
-              </div>
+              <PhotoDesc photoData={photo} />
             </div>
           </div>
         </div>
@@ -62,10 +41,7 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
           <div className={classnames(styles.imageContainer)}>
             <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
           </div>
-          <h1>{photo.title}</h1>
-          <div>
-            <ReactMarkdown source={photo.content} />
-          </div>
+          <PhotoDesc photoData={photo} />
         </div>
       )}
     </LayoutRoot>
@@ -73,3 +49,39 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
 }
 
 export default Photo
+
+export const query = graphql`
+  query PhotoQuery($id: Int!) {
+    strapiPhoto(strapiId: { eq: $id }) {
+      strapiId
+      title
+      content
+      published_at
+      iNatData {
+        commonName
+        dateTaken
+        endemic
+        introduced
+        latinName
+        native
+        placeGuess
+        qualityGrade
+        threatened
+        taxonAncestors {
+          preferredCommonName
+          name
+          rank
+        }
+      }
+      image {
+        imageFile {
+          childImageSharp {
+            fluid(maxWidth: 6000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`

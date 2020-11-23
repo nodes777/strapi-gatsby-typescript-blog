@@ -23,6 +23,35 @@ p {
   color: blanchedalmond;
 }
 
+/* Text styling*/
+.title {
+  margin-top: 1vh;
+  margin-bottom: 0;
+}
+
+.iNatData {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+}
+
+.iNatData p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.commonName {
+  font-style: bold;
+}
+
+.latinName {
+  font-style: italic;
+}
+
 /* Portrait */
 @media screen and (min-width: 600px) {
   .portraitImageContainer {
@@ -49,9 +78,19 @@ p {
     flex-direction: column;
     align-items: center;
   }
+  .portraitTextContainer {
+    padding-left: 0;
+  }
 }
 .portraitTextContainer {
   display: flex;
   flex-direction: column;
   padding-left: 1vw;
+  justify-content: start;
+  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+}
+.portraitTextContainer h1 {
+  margin-top: 0;
 }

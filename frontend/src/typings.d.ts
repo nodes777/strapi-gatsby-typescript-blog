@@ -1,5 +1,17 @@
 export interface PhotoInterface {
   node: {
+    iNatData: {
+      commonName: string
+      dateTaken: string
+      endemic: boolean
+      introduced: true
+      latinName: string
+      native: boolean
+      placeGuess: string
+      qualityGrade: string
+      threatened: boolean
+      taxonAncestors: TaxonAncestorInterface[]
+    }
     id: number
     strapiId: string
     image: {
@@ -16,6 +28,12 @@ export interface PhotoInterface {
     title: string
     content: string
   }
+}
+
+interface TaxonAncestorInterface {
+  preferredCommonName: string
+  name: string
+  rank: string
 }
 
 type FixedImageSharpObject = {

@@ -39,6 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/photo/${photo.node.strapiId}`,
       component: require.resolve('./src/templates/Photo.tsx'),
+      // this id is used in the graphQL call in the file
       context: {
         id: photo.node.strapiId
       }

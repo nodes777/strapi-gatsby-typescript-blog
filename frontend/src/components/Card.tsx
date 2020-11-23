@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ photo }) => {
     <div className={classnames(styles.cardContainer, aspectRatio > 1 ? null : styles.portraitCardContainer)}>
       <Link to={`/photo/${photo.node.strapiId}`}>
         <Img fluid={photo.node.image.imageFile.childImageSharp.fluid} />
-        <div>
+        <div className={styles.heading}>
           <h2 id={photo.node.strapiId}>{photo.node.title}</h2>
         </div>
       </Link>
