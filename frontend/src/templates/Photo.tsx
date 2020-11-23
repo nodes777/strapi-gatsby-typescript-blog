@@ -40,17 +40,34 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
   const photo = data.strapiPhoto
   console.log(photo)
   const aspectRatio = photo.image.imageFile.childImageSharp.fluid.aspectRatio
+  const isPortraitOrientation = aspectRatio < 1
   return (
     <LayoutRoot>
-      <div className={styles.photoContainer}>
-        <div className={classnames(styles.imageContainer, aspectRatio > 1 ? null : styles.portraitImageContainer)}>
-          <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
+      {isPortraitOrientation ? (
+        <div className={styles.portraitPhotoContainer}>
+          <div className={styles.portraitRowContainer}>
+            <div className={classnames(styles.imageContainer, styles.portraitImageContainer)}>
+              <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
+            </div>
+            <div className={styles.portraitTextContainer}>
+              <h1>{photo.title}</h1>
+              <div>
+                <ReactMarkdown source={photo.content} />
+              </div>
+            </div>
+          </div>
         </div>
-        <h1>{photo.title}</h1>
-        <div>
-          <ReactMarkdown source={photo.content} />
+      ) : (
+        <div className={styles.photoContainer}>
+          <div className={classnames(styles.imageContainer)}>
+            <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
+          </div>
+          <h1>{photo.title}</h1>
+          <div>
+            <ReactMarkdown source={photo.content} />
+          </div>
         </div>
-      </div>
+      )}
     </LayoutRoot>
   )
 }
