@@ -9,6 +9,8 @@ import styles from '../styles/photoPage.module.css'
 import classnames from 'classnames'
 import { PhotoDesc } from '../components/photoDesc'
 
+import Seo from '../components/Seo'
+
 interface PhotoProps {
   data: {
     strapiPhoto: PhotoInterface['node']
@@ -21,8 +23,13 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
   console.log(photo)
   const aspectRatio = photo.image.imageFile.childImageSharp.fluid.aspectRatio
   const isPortraitOrientation = aspectRatio < 1
+  const seoObj = {
+    title: data.strapiPhoto.title,
+    description: data.strapiPhoto.iNatData.commonName,
+    keywords: data.strapiPhoto.iNatData.latinName
+  }
   return (
-    <LayoutRoot>
+    <LayoutRoot seoProps={seoObj}>
       {isPortraitOrientation ? (
         <div className={styles.portraitPhotoContainer}>
           <div className={styles.portraitRowContainer}>

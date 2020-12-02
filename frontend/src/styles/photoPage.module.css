@@ -86,7 +86,7 @@ p {
   display: flex;
   flex-direction: column;
   padding-left: 1vw;
-  justify-content: start;
+  justify-content: flex-start;
   flex-grow: 1;
   align-items: center;
   text-align: center;

@@ -48,3 +48,9 @@ type FixedImageSharpObject = {
   tracedSVG: string
   width: number
 }
+
+export interface SEOProps {
+  title: string
+  description: string
+  keywords: string
+}

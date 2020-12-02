@@ -16,7 +16,7 @@ interface Props {
 const IndexLayout: React.FC<Props> = ({ children }) => {
   const queriedData = useSiteMetadata()
   return (
-    <LayoutRoot>
+    <LayoutRoot seoProps={queriedData.site.siteMetadata}>
       <div className={styles.bigHomeContainer}>
         <div className={styles.titleContainer}>
           <h1 className={styles.indexHeading}>TayloredToTaylor's Wildlife Photos</h1>

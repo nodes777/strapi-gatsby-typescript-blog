@@ -1,7 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+
+import { Helmet } from 'react-helmet-async'
 import { useStaticQuery, StaticQuery, graphql } from 'gatsby'
+import { SEOProps } from '../typings'
 
 interface StaticQueryProps {
   site: {
@@ -15,11 +16,11 @@ interface StaticQueryProps {
 }
 
 interface Props {
-  readonly title?: string
-  readonly children?: React.ReactNode
+  seoProps: SEOProps
+  // readonly children?: React.ReactNode
 }
 
-const SEO: React.FC<Props> = ({ children }) => (
+const SEO: React.FC<Props> = ({ children, seoProps }) => (
   <StaticQuery
     query={graphql`
       query SeoQuery {
@@ -36,7 +37,7 @@ const SEO: React.FC<Props> = ({ children }) => (
         htmlAttributes={{
           lang: `en`
         }}
-        title={data.site.siteMetadata.title}
+        title={seoProps.title}
         // titleTemplate={`%s | ${data.site.siteMetadata.title}`}
         link={[
           {
@@ -58,15 +59,19 @@ const SEO: React.FC<Props> = ({ children }) => (
         meta={[
           {
             name: `description`,
-            content: data.site.siteMetadata.description
+            content: seoProps.description
+          },
+          {
+            name: `keywords`,
+            content: seoProps.keywords
           },
           {
             property: `og:title`,
-            content: data.site.siteMetadata.title
+            content: seoProps.title
           },
           {
             property: `og:description`,
-            content: data.site.siteMetadata.description
+            content: seoProps.description
           },
           {
             property: `og:type`,
