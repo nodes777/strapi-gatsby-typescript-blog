@@ -8,6 +8,7 @@ import { PhotoInterface } from '../typings'
 import styles from '../styles/photoPage.module.css'
 import classnames from 'classnames'
 import { PhotoDesc } from '../components/photoDesc'
+import PhotoSeo from '../components/PhotoSeo'
 
 interface PhotoProps {
   data: {
@@ -21,8 +22,16 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
   console.log(photo)
   const aspectRatio = photo.image.imageFile.childImageSharp.fluid.aspectRatio
   const isPortraitOrientation = aspectRatio < 1
+
+  const seoObj = {
+    title: photo.title,
+    description: `${photo.title} ${photo.iNatData.commonName}`,
+    keywords: [photo.iNatData.latinName, photo.iNatData.commonName]
+  }
+
   return (
     <LayoutRoot>
+      <PhotoSeo seoProps={seoObj} />
       {isPortraitOrientation ? (
         <div className={styles.portraitPhotoContainer}>
           <div className={styles.portraitRowContainer}>
