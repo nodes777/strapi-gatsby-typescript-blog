@@ -17,10 +17,10 @@ interface StaticQueryProps {
 
 interface Props {
   seoProps: SEOProps
-  // readonly children?: React.ReactNode
+  readonly children?: React.ReactNode
 }
 
-const SEO: React.FC<Props> = ({ children, seoProps }) => (
+const Seo: React.FC<Props> = ({ children, seoProps }) => (
   <StaticQuery
     query={graphql`
       query SeoQuery {
@@ -83,4 +83,4 @@ const SEO: React.FC<Props> = ({ children, seoProps }) => (
   />
 )
 
-export default SEO
+export default Seo
