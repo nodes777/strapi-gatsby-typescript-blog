@@ -26,6 +26,13 @@ module.exports = {
         queryLimit: 1000
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/content`
+      }
+    },
     'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-canonical-urls',
