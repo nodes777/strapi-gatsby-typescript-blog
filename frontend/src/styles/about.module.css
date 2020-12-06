@@ -1,0 +1,24 @@
+.container h1 {
+  display: flex;
+  color: blanchedalmond;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.textContainer {
+  flex-direction: row;
+}
+
+.imageContainer {
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+}

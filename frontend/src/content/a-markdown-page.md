@@ -1,4 +1,5 @@
 ---
+slug: '/about'
 layout: page
 title: 'Example Markdown page'
 ---
