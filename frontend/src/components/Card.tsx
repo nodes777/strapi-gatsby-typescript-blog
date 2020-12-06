@@ -10,7 +10,6 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ photo }) => {
-  console.log(photo.node)
   const aspectRatio = photo.node.image.imageFile.childImageSharp.fluid.aspectRatio
   return (
     // if aspectRatio is greater than 1 it's a portrait
