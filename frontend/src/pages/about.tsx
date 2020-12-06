@@ -12,7 +12,7 @@ const about = ({ data }) => {
         <h1>About</h1>
         <div className={styles.titleContainer}>
           <div className={styles.imageContainer}>
-            <Img fixed={data.file.childImageSharp.fixed} alt="Taylor as a dog avatar" />
+            <Img fluid={data.file.childImageSharp.fluid} alt="Taylor as a dog avatar" />
           </div>
           <div className={styles.taylorContainer}>
             <h2>Taylor</h2>
@@ -39,8 +39,8 @@ export const query = graphql`
     file(relativePath: { eq: "prof.png" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.
-        fixed(width: 200) {
-          ...GatsbyImageSharpFixed
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -48,3 +48,15 @@ export const query = graphql`
 `
 
 export default about
+// export const query = graphql`
+//   query MyQuery {
+//     file(relativePath: { eq: "prof.png" }) {
+//       childImageSharp {
+//         # Specify the image processing specifications right in the query.
+//         fixed(width: 200) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//   }
+// `
