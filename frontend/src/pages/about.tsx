@@ -11,6 +11,7 @@ const about = ({ data }) => {
       <div className={styles.container}>
         <h1>About</h1>
         <div className={styles.titleContainer}>
+          <div className={styles.emptyDiv}></div>
           <div className={styles.imageContainer}>
             <Img fluid={data.file.childImageSharp.fluid} alt="Taylor as a dog avatar" />
           </div>

@@ -40,7 +40,6 @@
 }
 
 .imageContainer {
-  justify-content: center;
   min-width: 200px;
   max-width: 500px;
   flex-grow: 1;
@@ -53,4 +52,8 @@
 .textContainer {
   display: flex;
   justify-content: center;
+}
+
+.emptyDiv {
+  flex-grow: 1;
 }
