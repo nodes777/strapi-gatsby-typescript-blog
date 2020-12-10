@@ -1,10 +1,14 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import Img from 'gatsby-image'
+import Img, { FluidObject } from 'gatsby-image'
 import LayoutRoot from '../components/LayoutRoot'
 import styles from '../styles/about.module.css'
 
-const about = ({ data }) => {
+interface AboutProps {
+  data: { file: { childImageSharp: { fluid: FluidObject } } }
+}
+
+const about: React.FC<AboutProps> = ({ data }) => {
   console.log(data)
   return (
     <LayoutRoot>
