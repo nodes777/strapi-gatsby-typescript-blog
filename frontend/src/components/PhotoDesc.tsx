@@ -6,7 +6,7 @@ interface PhotoDescProps {
   photoData: PhotoInterface['node']
 }
 
-export const PhotoDesc: React.FC<PhotoDescProps> = ({ photoData }) => {
+const PhotoDesc: React.FC<PhotoDescProps> = ({ photoData }) => {
   return (
     <>
       <h1 className={styles.title}>{photoData.title}</h1>
@@ -32,3 +32,4 @@ export const PhotoDesc: React.FC<PhotoDescProps> = ({ photoData }) => {
     </>
   )
 }
+export default PhotoDesc
