@@ -4,7 +4,7 @@ services:
     env: node
     plan: starter
     buildCommand: cd backend && yarn install && yarn build
-    startCommand: cd backend && rsync -a backend/public/ /data/backend/public/ && yarn start
+    startCommand: cd backend && rsync -a public/ /data/backend/public/ && yarn start
     healthCheckPath: /_health
     disk:
       name: strapi-data
