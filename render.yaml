@@ -4,11 +4,11 @@ services:
     env: node
     plan: starter
     buildCommand: cd backend && yarn install && yarn build
-    startCommand: cd backend && rsync -a backend/public/ backend/data/public/ && yarn start
-    healthCheckPath: backend/_health
+    startCommand: cd backend && rsync -a backend/public/ /data/backend/public/ && yarn start
+    healthCheckPath: /_health
     disk:
       name: strapi-data
-      mountPath: backend/data
+      mountPath: /data/backend
       sizeGB: 1
     envVars:
       - key: NODE_VERSION
@@ -16,7 +16,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_FILENAME
-        value: backend/data/strapi.db
+        value: /data/backend/strapi.db
       - key: JWT_SECRET
         generateValue: true
       - key: ADMIN_JWT_SECRET

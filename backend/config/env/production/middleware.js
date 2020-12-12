@@ -4,7 +4,7 @@ module.exports = {
       level: "error",
     },
     public: {
-      path: "/data/public",
+      path: "/data/backend/public",
     },
   },
 };
