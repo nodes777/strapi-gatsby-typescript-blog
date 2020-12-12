@@ -7,7 +7,7 @@ import { PhotoInterface } from '../typings'
 
 import styles from '../styles/photoPage.module.css'
 import classnames from 'classnames'
-import PhotoDesc from '../../components/photoDesc'
+import PhotoDesc from '../components/photoDesc'
 import PhotoSeo from '../components/PhotoSeo'
 
 interface PhotoProps {
