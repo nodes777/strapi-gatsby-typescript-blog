@@ -3,7 +3,6 @@ import * as React from 'react'
 import styles from '../styles/layoutIndex.module.css'
 
 import LayoutRoot from '../components/LayoutRoot'
-
 import Photos from '../components/Photos'
 
 import { getSiteMetaDataAndTenPhotos, InitialQueryType } from './get-site-metadata'
@@ -23,7 +22,7 @@ const IndexLayout: React.FC<Props> = ({ children }) => {
 
   const handleOnDocumentBottom = useCallback(() => {
     console.log('at bottom, make a call')
-    // let morePhotosData = getTenPhotos(photosData.edges.length)
+    let morePhotosData = getTenPhotos(photosData.edges.length)
     // console.log(morePhotosData)
 
     // setPhotosData({ ...photosData, ...morePhotosData })
@@ -35,7 +34,7 @@ const IndexLayout: React.FC<Props> = ({ children }) => {
 
   console.log(photosData)
 
-  useBottomScrollListener(handleOnDocumentBottom)
+  // useBottomScrollListener(handleOnDocumentBottom)
 
   return (
     <LayoutRoot>
