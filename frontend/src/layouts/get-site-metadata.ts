@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby'
 import { PhotoInterface } from '../typings'
 
-interface StaticQueryProps {
+export interface InitialQueryType {
   site: {
     siteMetadata: {
       title: string
@@ -14,7 +14,7 @@ interface StaticQueryProps {
   }
 }
 
-export const useSiteMetadata = (): StaticQueryProps => {
+export const getSiteMetaDataAndTenPhotos = (): InitialQueryType => {
   const { site, allStrapiPhoto } = useStaticQuery(
     graphql`
       query IndexLayoutQuery {
@@ -24,8 +24,7 @@ export const useSiteMetadata = (): StaticQueryProps => {
             description
           }
         }
-        allStrapiPhoto {
-          # TODO: limit to first 10? sort by date added?
+        allStrapiPhoto(limit: 10, sort: { order: DESC, fields: published_at }) {
           totalCount
           edges {
             node {

@@ -1,0 +1,26 @@
+fragment GetTenPhotos on TypeName {
+  allStrapiPhoto(limit: 10, sort: { order: DESC, fields: published_at } skip: ) {
+    totalCount
+    edges {
+      node {
+        strapiId
+        id
+        title
+        content
+        tags {
+          name
+        }
+        image {
+          id
+          imageFile {
+            childImageSharp {
+              fluid(maxWidth: 4000, quality: 90) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
