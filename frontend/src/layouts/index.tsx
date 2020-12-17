@@ -18,7 +18,6 @@ const IndexLayout: React.FC = () => {
   const [photosData, setPhotosData] = useState(firstTen)
 
   const handleOnDocumentBottom = useCallback(() => {
-    console.log(queriedData.allStrapiPhoto.edges.length)
     if (photosData.length < allPhotosLength) {
       let morePhotosData = queriedData.allStrapiPhoto.edges.slice(indexToJumpTo, currentIndex + indexToJumpTo)
       setCurrentIndex(currentIndex + indexToJumpTo)
