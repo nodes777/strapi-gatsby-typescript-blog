@@ -14,7 +14,7 @@ export interface InitialQueryType {
   }
 }
 
-export const getSiteMetaDataAndTenPhotos = (): InitialQueryType => {
+export const getSiteMetaDataAndPhotos = (): InitialQueryType => {
   const { site, allStrapiPhoto } = useStaticQuery(
     graphql`
       query IndexLayoutQuery {
@@ -24,7 +24,7 @@ export const getSiteMetaDataAndTenPhotos = (): InitialQueryType => {
             description
           }
         }
-        allStrapiPhoto(limit: 10, sort: { order: DESC, fields: published_at }) {
+        allStrapiPhoto(sort: { order: DESC, fields: published_at }) {
           totalCount
           edges {
             node {

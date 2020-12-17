@@ -4,15 +4,15 @@ import styles from '../styles/photos.module.css'
 
 import { PhotoInterface } from '../typings'
 interface PhotosProps {
-  photos: {
-    edges: PhotoInterface[]
-  }
+  photos: PhotoInterface[]
 }
 
 const Photos: React.FC<PhotosProps> = ({ photos }) => {
+  console.log(photos)
+
   return (
     <div className={styles.photoListContainer}>
-      {photos.edges.map(photo => {
+      {photos.map(photo => {
         return <Card photo={photo} key={`photo__${photo.node.id}`} />
       })}
     </div>
