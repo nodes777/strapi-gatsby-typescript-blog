@@ -10,12 +10,12 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 
 const IndexLayout: React.FC = () => {
   const queriedData = getSiteMetaDataAndPhotos()
-  const indexToJumpTo = 3
-  const firstTen = queriedData.allStrapiPhoto.edges.slice(0, indexToJumpTo)
+  const indexToJumpTo = 3 // aka the intial num of photos to show
+  const firstSetOfPhotosToShow = queriedData.allStrapiPhoto.edges.slice(0, indexToJumpTo)
   const allPhotosLength = queriedData.allStrapiPhoto.edges.length
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [photosData, setPhotosData] = useState(firstTen)
+  const [currentIndex, setCurrentIndex] = useState(indexToJumpTo)
+  const [photosData, setPhotosData] = useState(firstSetOfPhotosToShow)
 
   const handleOnDocumentBottom = useCallback(() => {
     if (photosData.length < allPhotosLength) {

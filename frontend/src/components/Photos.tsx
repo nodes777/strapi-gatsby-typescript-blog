@@ -8,8 +8,6 @@ interface PhotosProps {
 }
 
 const Photos: React.FC<PhotosProps> = ({ photos }) => {
-  console.log(photos)
-
   return (
     <div className={styles.photoListContainer}>
       {photos.map(photo => {
