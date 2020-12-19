@@ -56,6 +56,7 @@ p {
 @media screen and (min-width: 600px) {
   .portraitImageContainer {
     max-width: 550px;
+    flex-grow: 1;
   }
 }
 
@@ -87,7 +88,7 @@ p {
   flex-direction: column;
   padding-left: 1vw;
   justify-content: flex-start;
-  flex-grow: 1;
+  flex-grow: 2;
   align-items: center;
   text-align: center;
 }
@@ -98,4 +99,8 @@ p {
 .descriptionContent {
   width: 90%;
   font-size: max(1vw, 18px);
+}
+
+.emptyDiv {
+  flex-grow: 1;
 }
