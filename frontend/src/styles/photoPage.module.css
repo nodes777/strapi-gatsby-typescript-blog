@@ -94,3 +94,8 @@ p {
 .portraitTextContainer h1 {
   margin-top: 0;
 }
+
+.descriptionContent {
+  width: 90%;
+  font-size: max(1vw, 18px);
+}

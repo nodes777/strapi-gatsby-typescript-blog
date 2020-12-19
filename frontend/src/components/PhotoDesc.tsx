@@ -26,7 +26,7 @@ const PhotoDesc: React.FC<PhotoDescProps> = ({ photoData }) => {
           </p>
         </div>
       </div>
-      <div>
+      <div className={styles.descriptionContent}>
         <ReactMarkdown source={photoData.content} />
       </div>
     </>
