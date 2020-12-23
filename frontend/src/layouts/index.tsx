@@ -25,7 +25,7 @@ const IndexLayout: React.FC = () => {
     }
   }, [photosData])
 
-  useBottomScrollListener(handleOnDocumentBottom)
+  useBottomScrollListener(handleOnDocumentBottom, { triggerOnNoScroll: true })
   return (
     <LayoutRoot>
       <div className={styles.bigHomeContainer}>
