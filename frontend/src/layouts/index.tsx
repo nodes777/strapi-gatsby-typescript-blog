@@ -26,7 +26,7 @@ const IndexLayout: React.FC = () => {
     }
   }, [photosData])
 
-  useBottomScrollListener(handleOnDocumentBottom, { triggerOnNoScroll: false })
+  useBottomScrollListener(handleOnDocumentBottom, { offset: 20 })
 
   return (
     <LayoutRoot>
