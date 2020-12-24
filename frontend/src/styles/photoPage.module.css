@@ -55,9 +55,12 @@ p {
 /* Portrait */
 @media screen and (min-width: 600px) {
   .portraitImageContainer {
-    max-width: 550px;
-    flex-grow: 1;
+    max-height: 100%;
+    max-width: 40%;
   }
+}
+.portraitImageContainer {
+  max-height: 95vh;
 }
 
 .portraitPhotoContainer {
@@ -85,10 +88,11 @@ p {
 }
 .portraitTextContainer {
   display: flex;
+  min-width: 50%;
   flex-direction: column;
-  padding-left: 1vw;
+  padding: 1vw;
   justify-content: flex-start;
-  flex-grow: 2;
+  flex-shrink: 1.4;
   align-items: center;
   text-align: center;
 }
@@ -97,11 +101,34 @@ p {
 }
 
 .descriptionContent {
-  width: 90%;
+  width: 98%;
   font-size: max(1vw, 18px);
   text-align: justify;
 }
 
 .emptyDiv {
   flex-grow: 1;
+}
+
+/*overwrite uikit css*/
+address,
+dl,
+fieldset,
+figure,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+}
+
+* + address,
+* + dl,
+* + fieldset,
+* + figure,
+* + ol,
+* + p,
+* + pre,
+* + ul {
+  margin-top: 0;
 }

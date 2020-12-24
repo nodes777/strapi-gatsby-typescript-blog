@@ -35,14 +35,12 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
       {isPortraitOrientation ? (
         <div className={styles.portraitPhotoContainer}>
           <div className={styles.portraitRowContainer}>
-            <div className={styles.emptyDiv}></div>
             <div className={classnames(styles.imageContainer, styles.portraitImageContainer)}>
-              <Img fluid={photo.image.imageFile.childImageSharp.fluid} />
+              <Img fluid={photo.image.imageFile.childImageSharp.fluid} imgStyle={{ objectFit: 'contain' }} style={{ maxHeight: '100%' }} />
             </div>
             <div className={styles.portraitTextContainer}>
               <PhotoDesc photoData={photo} />
             </div>
-            <div className={styles.emptyDiv}></div>
           </div>
         </div>
       ) : (

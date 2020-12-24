@@ -18,8 +18,6 @@ const IndexLayout: React.FC = () => {
   const [photosData, setPhotosData] = useState(firstSetOfPhotosToShow)
 
   const handleOnDocumentBottom = useCallback(() => {
-    console.log('!')
-
     if (photosData.length < allPhotosLength) {
       let morePhotosData = queriedData.allStrapiPhoto.edges.slice(indexToJumpTo, currentIndex + indexToJumpTo)
       setCurrentIndex(currentIndex + indexToJumpTo)
@@ -27,14 +25,18 @@ const IndexLayout: React.FC = () => {
     }
   }, [photosData])
 
-  useBottomScrollListener(handleOnDocumentBottom, { triggerOnNoScroll: true })
+  const scrollRef = useBottomScrollListener(handleOnDocumentBottom)
+
   return (
     <LayoutRoot>
       <div className={styles.bigHomeContainer}>
         <div className={styles.titleContainer}>
           <h1 className={styles.indexHeading}>TayloredToTaylor's Wildlife Photos</h1>
         </div>
-        <Photos photos={photosData} />
+        <Photos photos={photosData}>
+          {/* hack to get bottom scroller to work on live? */}
+          <div ref={scrollRef as React.RefObject<HTMLDivElement>}></div>
+        </Photos>
       </div>
     </LayoutRoot>
   )
