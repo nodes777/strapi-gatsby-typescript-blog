@@ -1,0 +1,44 @@
+/* Text styling*/
+.title {
+  margin-top: 1vh;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.iNatData {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+}
+
+.iNatData p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: max(1vw, 18px);
+  max-width: 1200px;
+}
+
+.commonName {
+  font-style: bold;
+}
+
+.latinName {
+  font-style: italic;
+}
+
+.descriptionContent {
+  font-size: max(1vw, 18px);
+  text-align: justify;
+  max-width: 1200px;
+}
+
+.colDataAndText {
+  flex-direction: column;
+  justify-content: center;
+  margin: 1vw;
+  text-align: center;
+}
