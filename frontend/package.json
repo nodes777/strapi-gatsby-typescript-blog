@@ -1,28 +1,29 @@
 {
-  "name": "gatsby-starter-typescript-plus",
-  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
-  "version": "1.0.0",
-  "private": true,
-  "author": "Resi Respati <resir014@gmail.com>",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "build": "gatsby build",
-    "clean": "rimraf public",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "dev": "gatsby develop",
-    "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "start": "npm run dev",
-    "test": "npm run type-check && npm run lint",
-    "type-check": "tsc"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
+  "name": "tayloredtotaylor-frontend",
+    "description": "A photo blog for wildlife photography",
+    "version": "1.0.0",
+    "private": true,
+    "author": "Taylor Nodell <taylor.nodell@gmail.com>",
+    "keywords": [
+      "gatsby",
+      "iNaturalist"
+    ],
+    "license": "MIT",
+    "scripts": {
+      "build": "gatsby build",
+      "clean": "rimraf public",
+      "clean-modules": "rmdir /s /q node_modules && npm install",
+      "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+      "dev": "gatsby develop",
+      "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
+      "lint": "eslint 'src/**/*.{ts,tsx}'",
+      "start": "npm run dev",
+      "test": "npm run type-check && npm run lint",
+      "type-check": "tsc"
+    },
+    "engines": {
+      "node": ">=8.0.0"
+    },
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.12",
@@ -42,7 +43,7 @@
     "gatsby-remark-prismjs": "^3.3.0",
     "gatsby-remark-responsive-iframe": "^2.2.0",
     "gatsby-remark-smartypants": "^2.1.0",
-    "gatsby-source-strapi": "^0.0.12",
+    "gatsby-source-strapi": "^1.0.0-alpha.0",
     "gatsby-transformer-json": "^2.2.0",
     "gatsby-transformer-remark": "^2.5.0",
     "gatsby-transformer-sharp": "^2.2.0",
