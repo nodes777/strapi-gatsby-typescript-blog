@@ -23,10 +23,12 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
   const aspectRatio = photo.image.imageFile.childImageSharp.fluid.aspectRatio
   const isPortraitOrientation = aspectRatio < 1
 
+  const siteURL = 'https://www.tayloredtotaylor.xyz/'
   const seoObj = {
     title: photo.title,
     description: `${photo.title} ${photo.iNatData.commonName}`,
-    keywords: [photo.iNatData.latinName, photo.iNatData.commonName]
+    keywords: [photo.iNatData.latinName, photo.iNatData.commonName],
+    imageUrl: `${siteURL}${photo.image.imageFile.childImageSharp.fluid.src}`
   }
 
   return (

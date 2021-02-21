@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
 interface PhotoSeoProps {
-  seoProps: { readonly title: string; readonly description: string; readonly keywords: string[] }
+  seoProps: { readonly title: string; readonly description: string; readonly keywords: string[]; readonly imageUrl: string }
 }
 
 const PhotoSeo: React.FC<PhotoSeoProps> = ({ seoProps }) => (
@@ -23,6 +23,10 @@ const PhotoSeo: React.FC<PhotoSeoProps> = ({ seoProps }) => (
       {
         property: `og:description`,
         content: seoProps.description
+      },
+      {
+        property: `og:image`,
+        content: seoProps.imageUrl
       }
     ]}
   ></Helmet>
