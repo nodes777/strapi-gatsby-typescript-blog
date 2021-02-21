@@ -23,6 +23,8 @@ const IndexLayout: React.FC = () => {
       setCurrentIndex(currentIndex + indexToJumpTo)
       const photosSet = new Set([...photosData, ...morePhotosData])
       const photosArr = Array.from(photosSet)
+      console.log(photosArr)
+
       setPhotosData(photosArr)
     }
   }, [photosData])
