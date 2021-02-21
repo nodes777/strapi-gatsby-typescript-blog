@@ -21,7 +21,9 @@ const IndexLayout: React.FC = () => {
     if (photosData.length < allPhotosLength) {
       let morePhotosData = queriedData.allStrapiPhoto.edges.slice(indexToJumpTo, currentIndex + indexToJumpTo)
       setCurrentIndex(currentIndex + indexToJumpTo)
-      setPhotosData([...photosData, ...morePhotosData])
+      const photosSet = new Set([...photosData, ...morePhotosData])
+      const photosArr = Array.from(photosSet)
+      setPhotosData(photosArr)
     }
   }, [photosData])
 
