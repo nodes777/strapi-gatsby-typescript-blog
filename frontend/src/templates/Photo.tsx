@@ -23,6 +23,7 @@ const Photo: React.FC<PhotoProps> = ({ data }) => {
   const aspectRatio = photo.image.imageFile.childImageSharp.fluid.aspectRatio
   const isPortraitOrientation = aspectRatio < 1
 
+  // @todo store this in an env
   const siteURL = 'https://www.tayloredtotaylor.xyz/'
   const seoObj = {
     title: photo.title,
