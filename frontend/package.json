@@ -12,21 +12,22 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "rimraf public",
-    "clean-modules": "rmdir /s /q node_modules && npm install",
+    "clean-modules": "rmdir /s /q node_modules && yarn install",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "start": "npm run dev",
-    "test": "npm run type-check && npm run lint",
+    "start": "yarn run dev",
+    "test": "yarn run type-check && yarn run lint",
     "type-check": "tsc"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.10",
     "classnames": "^2.2.6",
-    "gatsby": "^2.24.82",
+    "gatsby": "^2.32.13",
     "gatsby-image": "^2.2.1",
     "gatsby-plugin-canonical-urls": "^2.1.0",
     "gatsby-plugin-emotion": "^4.1.0",
@@ -39,7 +40,7 @@
     "gatsby-remark-prismjs": "^3.3.0",
     "gatsby-remark-responsive-iframe": "^2.2.0",
     "gatsby-remark-smartypants": "^2.1.0",
-    "gatsby-source-strapi": "^1.0.0-alpha.0",
+    "gatsby-source-strapi": "1.0.3",
     "gatsby-transformer-json": "^2.2.0",
     "gatsby-transformer-remark": "^2.5.0",
     "gatsby-transformer-sharp": "^2.2.0",
@@ -71,5 +72,7 @@
     "gh-pages": "^2.0.1",
     "prettier": "^1.18.2",
     "rimraf": "^2.6.3"
-  }
+  },
+  "resolutions": {"remark-mdx":"2.0.0-next.9"}
+
 }

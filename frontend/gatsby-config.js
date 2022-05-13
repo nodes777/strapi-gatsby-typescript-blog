@@ -18,11 +18,7 @@ module.exports = {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: process.env.API_URL || 'http://localhost:1337',
-        contentTypes: [
-          // List of the Content Types you want to be able to request from Gatsby.
-          'photo',
-          'tag'
-        ],
+        collectionTypes: ['photo', 'tag'],
         queryLimit: 1000
       }
     },
@@ -47,7 +43,7 @@ module.exports = {
       options: {
         // Available options and their defaults:
         base64Width: 20,
-        forceBase64Format: ``, // valid formats: png,jpg,webp
+        forceBase64Format: 'jpg', // valid formats: png,jpg,webp
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
         // upped from 50

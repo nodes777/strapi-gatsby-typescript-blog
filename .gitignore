@@ -111,4 +111,5 @@ exports
 .cache
 build
 .env
+backend\.env
 backend/.env
