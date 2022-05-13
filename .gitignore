@@ -112,4 +112,4 @@ exports
 build
 .env
 backend\.env
-.strapi-updater.json
+backend/.env

@@ -80,14 +80,3 @@ exports.createResolvers = ({ actions, cache, createNodeId, createResolvers, stor
     }
   })
 }
-
-// https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/#creating-type-definitions
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-    type AuthorJson implements Node {
-      joinedAt: Date
-    }
-  `
-  createTypes(typeDefs)
-}

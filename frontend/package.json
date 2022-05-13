@@ -12,13 +12,13 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "rimraf public",
-    "clean-modules": "rmdir /s /q node_modules && npm install",
+    "clean-modules": "rmdir /s /q node_modules && yarn install",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "start": "npm run dev",
-    "test": "npm run type-check && npm run lint",
+    "start": "yarn run dev",
+    "test": "yarn run type-check && yarn run lint",
     "type-check": "tsc"
   },
   "engines": {
