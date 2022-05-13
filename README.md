@@ -7,14 +7,14 @@ Live on  [tayloredtotaylor.xyz](https://www.tayloredtotaylor.xyz/)
 ## Quickstart
 
 /backend
-`npm run develop`
+`yarn run develop`
 
 /frontend
-`npm run dev`
+`yarn run dev`
 
 ## Requirements
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `yarn`.
 
 ## Installation
 
@@ -22,23 +22,25 @@ Live on  [tayloredtotaylor.xyz](https://www.tayloredtotaylor.xyz/)
 
 `cd backend`
 
-`npm install`
+`yarn install`
 
 Open a new node shell
 
 `cd frontend`
 
-`npm install`
+`yarn install`
 
 Once installed:
 
 /backend
 
-`npm run develop`
+`yarn build`
+
+`yarn run develop`
 
 /frontend
 
-`npm run dev`
+`yarn run dev`
 
 ### DevLogs
 
