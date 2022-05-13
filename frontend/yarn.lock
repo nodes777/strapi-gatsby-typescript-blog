@@ -6864,9 +6864,9 @@ gatsby-source-filesystem@3.7.1:
     valid-url "^1.0.9"
     xstate "^4.14.0"
 
-gatsby-source-strapi@^1.0.0-alpha.0:
+gatsby-source-strapi@1.0.3:
   version "1.0.3"
-  resolved "https://registry.npmjs.org/gatsby-source-strapi/-/gatsby-source-strapi-1.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/gatsby-source-strapi/-/gatsby-source-strapi-1.0.3.tgz#e1f94a9c1e055b4de1018fa8b509aa2713323645"
   integrity sha512-mNZsYBLh/N5O+FZ6mf7PhCv+cOMOuc9CGF/Tk72rboOWrLLAuP+MfPeUZzRgTMHGqRD99TrBWTc6/s+nPdngnQ==
   dependencies:
     axios "0.21.1"
