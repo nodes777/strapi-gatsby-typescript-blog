@@ -9,7 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi",
     "prodBuild": "cross-env NODE_ENV=production npm run build",
-    "prodStart": "cross-env NODE_ENV=production npm run start"
+    "prodStart": "cross-env NODE_ENV=production npm run start",
+    "clean-modules": "rmdir /s /q node_modules && yarn install"
   },
   "devDependencies": {},
   "dependencies": {
